@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .headerbox{
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(240, 240, 240);
+        justify-content: space-between;
+        height: 73vh;
+    }
+
+    .nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .logodiv{
+        min-width: 75px;
+    }
+    
+    .header-links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 300px;
+    }
+
+    .slogan-container{
+      /*  margin-top: 20px;
+        margin-bottom: 10px;
+        margin-left: 50px;
+        margin-right: 50px; */
+        margin-left: auto;
+        margin-right: auto;
+        /*align-self:center;*/
+        margin-top: 2vh;
+        margin-bottom: 7vh;
+        width: 300px
+
+    }
+    .slogan{
+        
+        text-align: center;
+    }
+
+    .creative-makeup{
+        font-style: italic;
+        color: royalblue;
+    }
+    .button1{
+        background-color: royalblue;
+        min-width: 75px;
+        max-width: 150px;
+        min-height: 35px;
+        border-radius: 50px;
+        
+    }
+    .button1text{
+        color: aliceblue;
+    }
+
+    .artists-box{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 1vh;
+        margin-bottom: 2vh;
+
+    }
+
+    .artist-img{
+        width: 190px;
+        position: relative;
+        height: 300px;
+        border-radius: 48%;
+        object-fit: cover;
+        transition: transform ease 400ms;
+        z-index: 2;
+    }
+
+    .artists-box-item:hover .artist-img{
+        transform: translate(0, -60px);
+
+    }
+
+    .artists-box-item:hover .artistName{
+        opacity: 50;
+        transition: ease 200ms;
+    }
+
+    .artistName{
+        opacity: 0;
+        position: relative;
+        z-index: 1;
+        bottom: 40px;
+        
+        transition: transform ease 500ms;
+        max-width: 190px;
+        text-align: center;
+    }
+    
+
+  
+
+    .sticky {
+        
+        position: sticky;
+        top: 0%;
+        width: 100%;
+        background-color: white; 
+    }
+    .stikyLinkBox{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        max-width: 30%;
+        margin-left: 10%;
+    }
+    .stickylinkitem{
+        margin: 1vw;
+        
+    }   
+
+    .newartboxWmargin{
+        margin: 7vw;
+    }
+
+    .main{background-color: rgb(240, 240, 240);}
+    .artwork{
+        background-color: rgb(240, 240, 240);
+    }
+
+    .buy-art-flexbox{   
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        width: 80vw;
+    }
+
+    .buy-art-flexbox-text{
+
+    }
+
+    .buy-art-flexbox .buy-art-flexbox-image-item{
+       
+        
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 20px 20px;
+        transition: transform ease 400ms;
+        rotate: -4deg;
+        background-color: white;
+        box-shadow: 5px 5px 8px 5px #888888;
+        margin-bottom: 20px;
+        
+    }
+    .buy-art-flexbox .buy-art-flexbox-image-item:hover{
+        transform: translate(0, -60px);
+    
+    
+    }
+
+    .buy-art-image{
+        
+        object-fit: cover;
+        width: 20vw;
+        height: 30vh;
+    }
+
+    .container{
+        margin: 30px 50px;
+    }
+
+    .watch-makeup{
+        color: royalblue;   
+    }
+
+
+
+    .spacer{
+        min-width: 20vw;
+        width: 20vw;
+    }
+
+    .artist-at-work-container{
+       
+        max-width: 100vw;
+        display: flex;
+        flex-direction: column;
+       /** flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;**/
+    }
+    
+    .artist-at-work-span{
+  /**  display: flex;
+    align-self: flex-start;
+    position: relative;
+    left: 11.5vw;    **/
+    }
+
+    .sanic{
+        width: 100%;
+        object-fit: fill;
+        max-width: 100vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+    }
+
+    .podcast-container{
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+    .podcast-flexbox{
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .riddle{
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 48%;
+        background-color: rgb(200, 200, 200);
+        border-radius: 49px;
+    }
+
+    .vid-container{
+        background-color: royalblue;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-around;
+        border-radius: 49px;
+        width: 48%;
+        
+    }
+    .audio{
+        align-self: center;
+    }
+
+    .footer-container{
+        align-self: center;
+        background-color: black;
+        color:white;
+        padding: 7vw;
+        
+    }
+
+    .footer-flexbox{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .links-flexbox{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        color:white;
+        min-width: 25vw;
+    }
+    
+  /*  .buy-art-flexbox-item{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        object-fit: cover;
+        width: 20%; 
+    } */
+    /*sticky div    afstand 0px   */
+
+
+
+/*            ---------
+            OPDRACHT 4 
+            ----------
+            in css border radius voor ronding
+            text eronder opacitiy 0
+            artis hover opacity 1  */
+
+</style>
+<body>
+    <header>
+        <div class="headerbox">
+        <div class="nav">
+            <div class="logodiv">
+                <p class="artofartso">logo</p>
+            </div>
+
+            <div class="header-links">
+                <a href="#footer">About us</a>
+                <a href="#section1">Art gallery</a>
+                <a href="#footer">sell you'res</a>
+            </div>
+
+            <div class="contact-button">
+                <button class="contact-button button1"><span class="button1text">Contact</span></button>
+            </div>
+        </div>
+
+        <div class="slogan-container">
+            <h1>
+                <p class="slogan">Buy art from the most<br><span class="creative-makeup">Creative</span> artist</p>
+            </h1>
+        </div>
+
+        <div class="artists-box">
+            <div class="artists-box-item">
+            <img class="artist-img" src="C:\Users\stanw\Documents\htmlstuff\websiteopdrachw4\artist (1).jpg" alt="a" >
+            <div class="artistName">Greta Maltgerne</div>
+            </div>
+            <div class="artists-box-item">
+            <img class="artist-img" src="C:\Users\stanw\Documents\htmlstuff\websiteopdrachw4\artist (2).jpg" alt="a">
+            <div class="artistName">Rossige Bob</div>
+            </div>
+            <div class="artists-box-item">
+            <img class="artist-img" src="C:\Users\stanw\Documents\htmlstuff\websiteopdrachw4\artist (3).jpg" alt="a">
+            <div class="artistName">Get yir rawfile reduced Karen</div>
+            </div>
+            <div class="artists-box-item">
+            <img class="artist-img" src="C:\Users\stanw\Documents\htmlstuff\websiteopdrachw4\artist (4).jpg" alt="a">
+            <div class="artistName">Douche</div>
+            </div>
+            <div class="artists-box-item">
+            <img class="artist-img" src="C:\Users\stanw\Documents\htmlstuff\websiteopdrachw4\artist (5).jpg" alt="a">
+            <div class="artistName">Miyazaki Sushi</div>
+            </div>
+            <div class="artists-box-item">
+            <img class="artist-img" src="C:\Users\stanw\Documents\htmlstuff\websiteopdrachw4\artist (6).jpg" alt="a">
+            <div class="artistName">Netflix Peter Parker</div>
+            </div>
+            <div class="artists-box-item">
+            <img class="artist-img" src="C:\Users\stanw\Documents\htmlstuff\websiteopdrachw4\artist (7).jpg" alt="a">
+            <div class="artistName">Onlyfans feet model</div>
+            </div>
+
+            
+        </div>   
+    </div>
+    </header>
+
+
+    <main class="main">
+        <div class="sticky">
+            <div class="stikyLinkBox">
+                
+                <div class="stickylinkitem"><a href="#section1">New art</a></div>
+                <div class="stickylinkitem"><a href="#sonic">Speed art</a></div>
+                <div class="stickylinkitem"><a href="#podcast">Podcast</a></div>
+
+            </div>
+        </div>
+        <section id="section1">
+            <div class="newartboxWmargin" id="new_art">
+            
+                <h1>
+                <p>new art</p>
+                </h1>
+            
+            <div class="buy-art-flexbox">
+             <div class="flexbox-item">   <div class="buy-art-flexbox-image-item" id="buy-art-flexbox-item1"><img class="buy-art-image" src="C:\Users\stanw\Documents\htmlstuff\websiteopdrachw4\art (1).webp" alt=""> </div>pretty flower</div>
+             <div class="flexbox-item">   <div class="buy-art-flexbox-image-item" id="buy-art-flexbox-item2"><img class="buy-art-image" src="C:\Users\stanw\Documents\htmlstuff\websiteopdrachw4\art (2).jpg" alt=""> </div> <span>literally george orwell 1984 </span></div>
+             <div class="flexbox-item">   <div class="buy-art-flexbox-image-item" id="buy-art-flexbox-item3"><img class="buy-art-image" src="C:\Users\stanw\Documents\htmlstuff\websiteopdrachw4\art (3).jpg" alt=""> </div>In the autumn time;<br>you cannot catch every leaf;<br>nor halt coming age; </div>
+            </div>
+            </div>
+        </section>
+        
+        <section class="artwork" id="sonic">
+            <div class="container">
+            <div class="hacky-extra-div-so-that-text-aligns-with-the-sonic-image-TODO-vraag-maurice-om-de-nette-manier">
+                
+            <div class="artist-at-work-container">
+                <span class="artist-at-work-span"><h1><span class="watch-makeup">Watch</span> amazing artists at work</h1></span>
+                <figure class="sanic">
+                <img  src="sanic.jpg" alt="Trulli">
+                <figcaption class="sanic-caption">kan doodgaan, maar niet zo goed<figcaption>
+                </figure>
+            </div>
+            
+
+            </div>
+        </div>
+        </section>
+
+ 
+        
+        <section>
+            <div class="container">
+                <div class="podcast-flexbox">
+                    <div class="riddle">
+                        <h1><span class="watch-makeup">puzzle</span><br>fishish the sequence to complete the word at the bottom</h1>
+                        <span> Lick <br> </span>
+                        <span> Tick <br> </span>
+                        
+                        <span>  _ick <br><br> </span>
+                        <span>  </span>
+                        
+                    </div>
+                    <div class="vid-container" id="podcast">
+                        <span>want a hint? click the button below.</span>
+                        <audio class="audio" controls>
+                            <source src="mp3file.mp3" type="audio/mp3">
+                            
+                            Your browser does not support the video tag.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+
+
+
+
+
+
+
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-flexbox">
+                <div>
+                    <span class="footer-text1"><h1>artso fartso TM </h1><br></span>
+                    <span>do not steal my art</span>
+                </div>     
+                <div class="links-flexbox"> 
+                    <div class="link-flexbox-item"> <p>About us</p></div>
+                    <div class="link-flexbox-item"> <p>Art gallery</p></div>
+                    <div class="link-flexbox-item"> <p>Sell your art</p></div>
+                    <div class="link-flexbox-item"> <p>Contact</p></div>
+                   
+               
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
